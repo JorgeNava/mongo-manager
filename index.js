@@ -26,8 +26,6 @@ class DatabaseQuery {
       const operationResult = await collection[queryDefinition.meta.type](queryDefinition.query);
       const records = operationResult.toArray ? await operationResult.toArray() : operationResult;
 
-      console.log('[NAVA] records', records);
-
       return records;
     } catch (error) {
       console.error('Error during database operation', error);
@@ -65,6 +63,5 @@ class DatabaseQuery {
 exports.handler = async (event) => {
   console.log('Received event:', JSON.stringify(event, null, 2));
   const records = await DatabaseQuery.handle(event);
-  console.log('[NAVA] records', records);
   return records;
 };
