@@ -1,4 +1,17 @@
-# Mongo Database Manager
+# Mongo Query Handler
 
-This app will manage a mongodatabase collections and docuemnts by executing CRUD commands over it.
-# mongo-manager
+This AWS Lambda Function will operate a mongodatabase collections and docuemnts by executing:
+"insert", "findOne", "find", "updateOne", "updateMany", "deleteOne", "deleteMany" commands over it.
+
+## Expected inputs
+queryDefinition: {
+  query: {
+    [
+      
+    ]
+  },
+  meta: {
+    type: "", // values could be "insert", "findOne", and the rest of posible operations
+    collection: ""
+  }
+}
